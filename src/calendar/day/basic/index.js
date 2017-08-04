@@ -40,6 +40,7 @@ class Day extends Component {
     const dotStyle = [this.style.dot];
 
     let marked = this.props.marked || {};
+    let dotColor = marked.color
     if (marked && marked.constructor === Array && marked.length) {
       marked = {
         marked: true
@@ -48,7 +49,7 @@ class Day extends Component {
     let dot;
     if (marked.marked) {
       dotStyle.push(this.style.visibleDot);
-      dot = (<View style={dotStyle}/>);
+      dot = (<View style={[dotStyle, dotColor && {backgroundColor: dotColor}]}/>);
     } else if (!this.props.markingExists) {
       textStyle.push(this.style.alignedText);
     }
