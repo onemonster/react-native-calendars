@@ -55,6 +55,9 @@ class Day extends Component {
     }
 
     if (this.props.state === 'selected' || marked.selected) {
+      if (dotColor) {
+        containerStyle.push({ backgroundColor: dotColor })
+      }
       containerStyle.push(this.style.selected);
       dotStyle.push(this.style.selectedDot);
       textStyle.push(this.style.selectedText);
